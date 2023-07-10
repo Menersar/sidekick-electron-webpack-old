@@ -239,8 +239,9 @@ class WebpackConfigurator {
       output: {
         filename: "[name].js",
         chunkFilename: "[name].bundle.js",
-        // libraryTarget: "commonjs2",
-        libraryTarget: "umd",
+        // !!
+        libraryTarget: "commonjs2",
+        // libraryTarget: "umd",
         path: path.join(this.commonDistDirectory, this.type)
       },
       target: this.isTest ? "node" : `electron-${this.type === "renderer-dll" ? "renderer" : this.type}`,

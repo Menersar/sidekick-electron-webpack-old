@@ -211,11 +211,11 @@ async function generateIndexFile(configurator: WebpackConfigurator, nodeModulePa
     html = html.replace("</head>", `<title>${title}</title></head>`)
   }
 
-  // if (nodeModulePath) {
-  //   html = html.replace("</head>", `<script>require('module').globalPaths.push("${nodeModulePath.replace(/\\/g, "/")}")</script></head>`)
-  // }
+  if (nodeModulePath) {
+    html = html.replace("</head>", `<script>require('module').globalPaths.push("${nodeModulePath.replace(/\\/g, "/")}")</script></head>`)
+  }
 
-  // html = html.replace("</head>", '<script>require("source-map-support/source-map-support.js").install()</script></head>')
+  html = html.replace("</head>", '<script>require("source-map-support/source-map-support.js").install()</script></head>')
 
   if (scripts.length) {
     html = html.replace("</head>", `${scripts.join("")}</head>`)
